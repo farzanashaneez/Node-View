@@ -1,25 +1,26 @@
 {
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-    "target": "ES2023",
+    "target": "ES2022", // <<-- Added target (for Node.js environment)
     "lib": ["ES2023"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "incremental": true,
 
     /* Bundler mode */
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
+    "allowImportingTsExtensions": true, // Requires noEmit or emitDeclarationOnly
+    "verbatimModuleSyntax": true,      // Highly recommended for explicit type imports
+    "moduleDetection": "force",       // Ensures non-declaration files are modules
+    "noEmit": true,                   // Essential when using Vite's bundling capabilities
 
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
+    // "erasableSyntaxOnly": true,       // Commented out: May not be needed unless using Node.js's --experimental-strip-types
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    // "noUncheckedSideEffectImports": true // Recommended for catching typos in side effect imports
   },
   "include": ["vite.config.ts"]
 }

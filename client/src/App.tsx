@@ -1,5 +1,6 @@
 
-import './App.css'
+// import './App.css'
+ import {TreePage} from './pages/TreePage';
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
         </header>
         <main>
           <p>Feel free to explore and modify the code!</p>
+          {/* <TreeStructure /> */}
+          <TreePage />
         </main>
         <footer>
           <p>&copy; 2023 My React App</p>

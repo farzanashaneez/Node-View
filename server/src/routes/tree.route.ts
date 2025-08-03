@@ -4,13 +4,13 @@ import {
   updateNode,
   deleteNode,
   getAllNodes,
-getFullTree,
-  getChildrenByParentId
+  getChildrenByParentId,
+  getRoots
 } from "../controllers/node.controller";
 
 const router = Router();
 
-router.get("/", getFullTree); 
+router.get("/roots", getRoots); 
 router.post("/", createNode);
 router.put("/:id", updateNode);
 router.delete("/:id", deleteNode);

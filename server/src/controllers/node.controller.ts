@@ -9,10 +9,17 @@ export const createNode = async (req: Request, res: Response) => {
     const id = uuidv4();
 
     let path: string;
+    let ancestors: string[] = [];
+
     if (parentId) {
       const parent = await NodeModel.findOne({ id: parentId });
       if (!parent) return res.status(404).json({ message: "Parent not found" });
+
       path = `${parent.path}/${id}`;
+      ancestors = [...(parent.ancestors || []), parent.id];
+
+      // Mark parent as having children
+      await NodeModel.updateOne({ id: parentId }, { haveChild: true });
     } else {
       path = `/${id}`;
     }
@@ -20,10 +27,12 @@ export const createNode = async (req: Request, res: Response) => {
     const newNode = new NodeModel({
       id,
       parentId: parentId || null,
-      haveChild: parentId? true : false, 
       name,
       path,
+      haveChild: false,
+      ancestors,
     });
+
     await newNode.save();
 
     res.status(201).json(newNode);
@@ -31,6 +40,7 @@ export const createNode = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Error creating node", error });
   }
 };
+
 
 // Edit node name
 export const updateNode = async (req: Request, res: Response) => {
@@ -61,13 +71,19 @@ export const deleteNode = async (req: Request, res: Response) => {
 
     await NodeModel.deleteMany({ path: { $regex: `^${node.path}` } });
 
-    await NodeModel.updateOne({parentId: node.parentId}, {haveChild: false});
+    if (node.parentId) {
+      const siblingCount = await NodeModel.countDocuments({ parentId: node.parentId });
+      if (siblingCount === 0) {
+        await NodeModel.updateOne({ id: node.parentId }, { haveChild: false });
+      }
+    }
 
     res.json({ message: "Node and its children deleted" });
   } catch (error) {
     res.status(500).json({ message: "Error deleting node", error });
   }
 };
+
 
 // Get all nodes as flat list (optional)
 export const getAllNodes = async (_req: Request, res: Response) => {
@@ -79,29 +95,27 @@ export const getAllNodes = async (_req: Request, res: Response) => {
   }
 };
 
-// get all nodes in tree structure
-export const getFullTree = async (_req: Request, res: Response) => {
+// get all roots
+export const getRoots = async (_req: Request, res: Response) => {
   try {
-    const roots = await NodeModel.aggregate([
-      {
-        $match: { parentId: null } // Root nodes only
-      },
-      {
-        $graphLookup: {
-          from: "nodes", // collection name (lowercase, plural by default)
-          startWith: "$id",
-          connectFromField: "id",
-          connectToField: "parentId",
-          as: "descendants"
-        }
-      }
-    ]);
+    const roots = await NodeModel.find({ parentId: null },{_id:0,id:1,name:1,path:1,parentId:1}).lean();
+    const rootIds = roots.map(root => root.id);
 
-    res.json(roots);
+    const children = await NodeModel.find(
+      { parentId: { $in: rootIds } },
+      {_id:0,id:1,name:1,path:1,parentId:1}
+    ).lean();
+    
+    const rootsWithChildren = roots.map(root => ({
+      ...root,
+      children: children.filter(child => child.parentId === root.id),
+    }));  
+    res.json(rootsWithChildren);
   } catch (error) {
-    res.status(500).json({ message: "Error using graphLookup", error });
+    res.status(500).json({ message: "Error fetching root nodes", error });
   }
 };
+
 
 export const getChildrenByParentId = async (req: Request, res: Response) => {
   try {
@@ -111,13 +125,29 @@ export const getChildrenByParentId = async (req: Request, res: Response) => {
       return res.status(400).json({ message: 'Parent ID is required' });
     }
 
-    const children = await NodeModel.find({ parentId }).lean();
+    const children = await NodeModel.find(
+      { parentId },
+      { _id: 0, id: 1, name: 1, path: 1, parentId: 1 }
+    ).lean();
 
-    res.status(200).json({ parentId, children });
+    const childIds = children.map(child => child.id);
+
+    const grandchildren = await NodeModel.find(
+      { parentId: { $in: childIds } },
+      { _id: 0, id: 1, name: 1, path: 1, parentId: 1 }
+    ).lean();
+
+    const childrenWithGrandchildren = children.map(child => ({
+      ...child,
+      children: grandchildren.filter(gc => gc.parentId === child.id),
+    }));
+
+    res.status(200).json(childrenWithGrandchildren);
   } catch (error) {
     console.error('Error fetching child nodes:', error);
     res.status(500).json({ message: 'Server error', error });
   }
 };
+
 
 
