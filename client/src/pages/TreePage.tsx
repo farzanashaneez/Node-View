@@ -77,31 +77,7 @@ const [nodeToDelete, setNodeToDelete] = useState<TreeNodeData | null>(null);
     setEditingNodeId(null);
   };
 
-  // const handleDelete = async (node: TreeNodeData) => {
-  //   // Show confirmation dialog
-  //   const confirmDelete = window.confirm(
-  //     `Are you sure you want to delete "${node.name}" and all its children?`
-  //   );
-
-  //   if (!confirmDelete) return;
-
-  //   try {
-  //     // Make API call to delete node
-  //     await deleteNode(node.id);
-  //     console.log("Node deleted successfully");
-
-  //     // Update local state
-  //     const updated = deleteNodeById(treeData, node.id);
-  //     setTreeData(updated);
-  //     setMessage("Node deleted successfully");
-  //     setOpen(true);
-  //   } catch (error) {
-  //     console.error("Error deleting node:", error);
-  //     setMessage("Error deleting node");
-  //     setOpen(true);
-  //     setSeverity("error");
-  //   }
-  // };
+  
   const handleDelete = (node: TreeNodeData) => {
     setNodeToDelete(node);
     setConfirmOpen(true);
