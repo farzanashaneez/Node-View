@@ -10,6 +10,7 @@ interface LogRequestBody {
 
 export const saveLog = (req: Request, res: Response): void => {
     const { message, stack, componentStack } = req.body;
+    console.log(message, stack, componentStack);
 
     const logEntry = `\n[${new Date().toISOString()}]\nMessage: ${message}\nStack: ${stack}\nComponent Stack: ${componentStack}\n--------------------`;
   

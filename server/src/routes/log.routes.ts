@@ -3,6 +3,6 @@ import { saveLog } from '../controllers/log.controller';
 
 const router = express.Router();
 
-router.post('/logError', saveLog);
+router.post('/', saveLog);
 
 export default router;

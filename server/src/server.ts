@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 import treeRouter from './routes/tree.route';
-import logRouter  from './routes/tree.route';
+import logRouter  from './routes/log.routes';
 
 import { connectDB } from './config/db';
 

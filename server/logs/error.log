@@ -1,0 +1,85 @@
+
+[2025-08-04T09:34:36.637Z]
+Message: setIsAddindddgRoot is not defined
+Stack: ReferenceError: setIsAddindddgRoot is not defined
+    at http://localhost:5173/src/pages/TreePage.tsx?t=1754299646129:36:5
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:17486:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:1485:72)
+    at commitHookEffectListMount (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:8460:122)
+    at commitHookPassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:8518:60)
+    at commitPassiveMountOnFiber (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:9887:29)
+    at recursivelyTraversePassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:9868:13)
+    at commitPassiveMountOnFiber (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:9984:13)
+    at recursivelyTraversePassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:9868:13)
+    at commitPassiveMountOnFiber (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:9984:13)
+Component Stack: 
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754299646129:28:35)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at div (<anonymous>)
+    at ErrorBoundary (http://localhost:5173/node_modules/.vite/deps/react-error-boundary.js?v=228b5945:18:5)
+    at App (<anonymous>)
+--------------------
+[2025-08-04T09:34:36.639Z]
+Message: setIsAddindddgRoot is not defined
+Stack: ReferenceError: setIsAddindddgRoot is not defined
+    at http://localhost:5173/src/pages/TreePage.tsx?t=1754299646129:36:5
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:17486:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:1485:72)
+    at commitHookEffectListMount (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:8460:122)
+    at commitHookPassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:8518:60)
+    at reconnectPassiveEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10016:13)
+    at recursivelyTraverseReconnectPassiveEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:9995:11)
+    at reconnectPassiveEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10054:13)
+    at recursivelyTraverseReconnectPassiveEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:9995:11)
+    at reconnectPassiveEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10054:13)
+Component Stack: 
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754299646129:28:35)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at div (<anonymous>)
+    at ErrorBoundary (http://localhost:5173/node_modules/.vite/deps/react-error-boundary.js?v=228b5945:18:5)
+    at App (<anonymous>)
+--------------------
+[2025-08-04T09:34:41.958Z]
+Message: setIsAddindddgRoot is not defined
+Stack: ReferenceError: setIsAddindddgRoot is not defined
+    at http://localhost:5173/src/pages/TreePage.tsx?t=1754299646129:36:5
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:17486:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:1485:72)
+    at commitHookEffectListMount (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:8460:122)
+    at commitHookPassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:8518:60)
+    at commitPassiveMountOnFiber (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:9887:29)
+    at recursivelyTraversePassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:9868:13)
+    at commitPassiveMountOnFiber (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:9984:13)
+    at recursivelyTraversePassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:9868:13)
+    at commitPassiveMountOnFiber (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:9984:13)
+Component Stack: 
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754299646129:28:35)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at div (<anonymous>)
+    at ErrorBoundary (http://localhost:5173/node_modules/.vite/deps/react-error-boundary.js?v=228b5945:18:5)
+    at App (<anonymous>)
+--------------------
+[2025-08-04T09:34:41.961Z]
+Message: setIsAddindddgRoot is not defined
+Stack: ReferenceError: setIsAddindddgRoot is not defined
+    at http://localhost:5173/src/pages/TreePage.tsx?t=1754299646129:36:5
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:17486:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:1485:72)
+    at commitHookEffectListMount (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:8460:122)
+    at commitHookPassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:8518:60)
+    at reconnectPassiveEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10016:13)
+    at recursivelyTraverseReconnectPassiveEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:9995:11)
+    at reconnectPassiveEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10054:13)
+    at recursivelyTraverseReconnectPassiveEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:9995:11)
+    at reconnectPassiveEffects (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10054:13)
+Component Stack: 
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754299646129:28:35)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at div (<anonymous>)
+    at ErrorBoundary (http://localhost:5173/node_modules/.vite/deps/react-error-boundary.js?v=228b5945:18:5)
+    at App (<anonymous>)
+--------------------

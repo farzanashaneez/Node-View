@@ -17,6 +17,7 @@ const TreePage: React.FC = () => {
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
+    setIsAddindddgRoot();
     const fetchTree = async () => {
       try {
         const res = await getRoots();
