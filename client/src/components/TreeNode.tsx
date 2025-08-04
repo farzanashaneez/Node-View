@@ -129,7 +129,7 @@ interface TreeNodeProps {
   return (
     <div>
       <div
-        className="flex items-center border-2 border-gray-200 rounded-xl px-2 py-1 mb-1 bg-white shadow-sm"
+        className="flex items-center h-10 border-2 border-gray-200 rounded-xl px-2 py-1 mb-1 bg-white shadow-sm"
         style={{ marginLeft: `${level * 20}px` }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}

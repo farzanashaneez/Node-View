@@ -194,7 +194,7 @@ const [nodeToDelete, setNodeToDelete] = useState<TreeNodeData | null>(null);
   return (
     <>
       <Suspense fallback={<LoadingFallback />}>
-        <div style={{ padding: "1rem" }}>
+        <div className="min-w-32 max-w-screen-md px-4 py-4" style={{ padding: "1rem" }}>
           <div
             style={{
               display: "flex",
