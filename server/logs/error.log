@@ -83,3 +83,243 @@ Component Stack:
     at ErrorBoundary (http://localhost:5173/node_modules/.vite/deps/react-error-boundary.js?v=228b5945:18:5)
     at App (<anonymous>)
 --------------------
+[2025-08-04T09:49:53.560Z]
+Message: fl is not defined
+Stack: ReferenceError: fl is not defined
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754300992934:161:65)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:17424:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:4206:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:6619:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:7654:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:1485:72)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10868:98)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10728:43)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10711:13)
+    at performWorkOnRoot (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10359:46)
+Component Stack: 
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754300992934:28:35)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at ErrorBoundary (http://localhost:5173/node_modules/.vite/deps/react-error-boundary.js?t=1754300734711&v=228b5945:18:5)
+    at App (<anonymous>)
+--------------------
+[2025-08-04T09:49:56.806Z]
+Message: flexDirection is not defined
+Stack: ReferenceError: flexDirection is not defined
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754300995172:161:65)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:17424:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:4206:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:6619:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:7654:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:1485:72)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10868:98)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10728:43)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10711:13)
+    at performWorkOnRoot (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10359:46)
+Component Stack: 
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754300995172:28:35)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at ErrorBoundary (http://localhost:5173/node_modules/.vite/deps/react-error-boundary.js?t=1754300734711&v=228b5945:18:5)
+    at App (<anonymous>)
+--------------------
+[2025-08-04T09:50:12.125Z]
+Message: flexDirection is not defined
+Stack: ReferenceError: flexDirection is not defined
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301012018:161:65)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:17424:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:4206:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:6619:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:7654:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:1485:72)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10868:98)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10728:43)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10711:13)
+    at performWorkOnRoot (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10359:46)
+Component Stack: 
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301012018:28:35)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at ErrorBoundary (http://localhost:5173/node_modules/.vite/deps/react-error-boundary.js?t=1754300734711&v=228b5945:18:5)
+    at App (<anonymous>)
+--------------------
+[2025-08-04T09:50:14.175Z]
+Message: f is not defined
+Stack: ReferenceError: f is not defined
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301013920:161:65)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:17424:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:4206:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:6619:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:7654:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:1485:72)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10868:98)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10728:43)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10711:13)
+    at performWorkOnRoot (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10359:46)
+Component Stack: 
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301013920:28:35)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at ErrorBoundary (http://localhost:5173/node_modules/.vite/deps/react-error-boundary.js?t=1754300734711&v=228b5945:18:5)
+    at App (<anonymous>)
+--------------------
+[2025-08-04T09:58:19.292Z]
+Message: handleDelete is not defined
+Stack: ReferenceError: handleDelete is not defined
+    at http://localhost:5173/src/pages/TreePage.tsx?t=1754301499203:208:23
+    at Array.map (<anonymous>)
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301499203:201:16)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:17424:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:4206:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:6619:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:7654:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:1485:72)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10868:98)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10728:43)
+Component Stack: 
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301499203:36:35)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at ErrorBoundary (http://localhost:5173/node_modules/.vite/deps/react-error-boundary.js?t=1754300734711&v=228b5945:18:5)
+    at App (<anonymous>)
+--------------------
+[2025-08-04T09:58:24.002Z]
+Message: handleDelete is not defined
+Stack: ReferenceError: handleDelete is not defined
+    at http://localhost:5173/src/pages/TreePage.tsx?t=1754301502419:227:23
+    at Array.map (<anonymous>)
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301502419:220:16)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:17424:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:4206:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:6619:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:7654:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:1485:72)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10868:98)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10728:43)
+Component Stack: 
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301502419:36:35)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at ErrorBoundary (http://localhost:5173/node_modules/.vite/deps/react-error-boundary.js?t=1754300734711&v=228b5945:18:5)
+    at App (<anonymous>)
+--------------------
+[2025-08-04T09:58:37.270Z]
+Message: handleDelete is not defined
+Stack: ReferenceError: handleDelete is not defined
+    at http://localhost:5173/src/pages/TreePage.tsx?t=1754301515669:227:23
+    at Array.map (<anonymous>)
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301515669:220:16)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:17424:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:4206:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:6619:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:7654:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:1485:72)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10868:98)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10728:43)
+Component Stack: 
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301515669:36:35)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at ErrorBoundary (http://localhost:5173/node_modules/.vite/deps/react-error-boundary.js?t=1754300734711&v=228b5945:18:5)
+    at App (<anonymous>)
+--------------------
+[2025-08-04T09:58:39.440Z]
+Message: handleDelete is not defined
+Stack: ReferenceError: handleDelete is not defined
+    at http://localhost:5173/src/pages/TreePage.tsx?t=1754301517873:227:23
+    at Array.map (<anonymous>)
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301517873:220:16)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:17424:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:4206:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:6619:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:7654:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:1485:72)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10868:98)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10728:43)
+Component Stack: 
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301517873:36:35)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at ErrorBoundary (http://localhost:5173/node_modules/.vite/deps/react-error-boundary.js?t=1754300734711&v=228b5945:18:5)
+    at App (<anonymous>)
+--------------------
+[2025-08-04T09:58:55.517Z]
+Message: handleDelete is not defined
+Stack: ReferenceError: handleDelete is not defined
+    at http://localhost:5173/src/pages/TreePage.tsx?t=1754301517873:227:23
+    at Array.map (<anonymous>)
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301517873:220:16)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:17424:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:4206:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:6619:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:7654:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:1485:72)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10868:98)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10728:43)
+Component Stack: 
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301517873:36:35)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at ErrorBoundary (http://localhost:5173/node_modules/.vite/deps/react-error-boundary.js?t=1754300734711&v=228b5945:18:5)
+    at App (<anonymous>)
+--------------------
+[2025-08-04T10:02:11.030Z]
+Message: t is not defined
+Stack: ReferenceError: t is not defined
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301730932:302:110)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:17424:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:4206:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:6619:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:7654:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:1485:72)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10868:98)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10728:43)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10711:13)
+    at performWorkOnRoot (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10359:46)
+Component Stack: 
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301730932:36:35)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at ErrorBoundary (http://localhost:5173/node_modules/.vite/deps/react-error-boundary.js?t=1754300734711&v=228b5945:18:5)
+    at App (<anonymous>)
+--------------------
+[2025-08-04T10:02:12.678Z]
+Message: te is not defined
+Stack: ReferenceError: te is not defined
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301731032:302:110)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:17424:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:4206:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:6619:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:7654:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:1485:72)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10868:98)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10728:43)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10711:13)
+    at performWorkOnRoot (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10359:46)
+Component Stack: 
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301731032:36:35)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at ErrorBoundary (http://localhost:5173/node_modules/.vite/deps/react-error-boundary.js?t=1754300734711&v=228b5945:18:5)
+    at App (<anonymous>)
+--------------------
+[2025-08-04T10:02:15.026Z]
+Message: textAlign is not defined
+Stack: ReferenceError: textAlign is not defined
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301733427:302:110)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:17424:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:4206:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:6619:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:7654:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:1485:72)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10868:98)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10728:43)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10711:13)
+    at performWorkOnRoot (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=228b5945:10359:46)
+Component Stack: 
+    at TreePage (http://localhost:5173/src/pages/TreePage.tsx?t=1754301733427:36:35)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at ErrorBoundary (http://localhost:5173/node_modules/.vite/deps/react-error-boundary.js?t=1754300734711&v=228b5945:18:5)
+    at App (<anonymous>)
+--------------------

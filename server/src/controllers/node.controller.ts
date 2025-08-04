@@ -85,7 +85,7 @@ export const deleteNode = async (req: Request, res: Response) => {
 };
 
 
-// Get all nodes as flat list (optional)
+// Get all nodes as flat list
 export const getAllNodes = async (_req: Request, res: Response) => {
   try {
     const nodes = await NodeModel.find();
@@ -96,22 +96,7 @@ export const getAllNodes = async (_req: Request, res: Response) => {
 };
 
 
-const getChildrenRecursively = async (parentId: string): Promise<any[]> => {
-  const children = await NodeModel.find(
-    { parentId },
-    { _id: 0, id: 1, name: 1, path: 1, parentId: 1 }
-  ).lean();
 
-  // Recursively fetch children of each child
-  const childrenWithDescendants = await Promise.all(
-    children.map(async (child) => ({
-      ...child,
-      children: await getChildrenRecursively(child.id),
-    }))
-  );
-
-  return childrenWithDescendants;
-};
 
 export const getRoots = async (_req: Request, res: Response) => {
   try {
@@ -167,5 +152,20 @@ export const getChildrenByParentId = async (req: Request, res: Response) => {
   }
 };
 
+const getChildrenRecursively = async (parentId: string): Promise<any[]> => {
+  const children = await NodeModel.find(
+    { parentId },
+    { _id: 0, id: 1, name: 1, path: 1, parentId: 1 }
+  ).lean();
 
+  // Recursively fetch children of each child
+  const childrenWithDescendants = await Promise.all(
+    children.map(async (child) => ({
+      ...child,
+      children: await getChildrenRecursively(child.id),
+    }))
+  );
+
+  return childrenWithDescendants;
+};
 

@@ -1,4 +1,13 @@
 import React, { useEffect, useState } from "react";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button,
+  Typography,
+} from "@mui/material";
+
 import type { TreeNodeData } from "../components/TreeNode";
 import { createNode, getRoots, updateNode, deleteNode } from "../api/treeAPI";
 import { AddNodeModal } from "../components/AddNodeModal";
@@ -15,9 +24,12 @@ const TreePage: React.FC = () => {
   const [editingNodeId, setEditingNodeId] = useState<string | null>(null);
   const [isAddingRoot, setIsAddingRoot] = useState(false);
 
+  const [confirmOpen, setConfirmOpen] = useState(false);
+const [nodeToDelete, setNodeToDelete] = useState<TreeNodeData | null>(null);
+
+
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    setIsAddindddgRoot();
     const fetchTree = async () => {
       try {
         const res = await getRoots();
@@ -33,7 +45,7 @@ const TreePage: React.FC = () => {
 
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
-  const [severity,setSeverity] = useState<"success" | "error">("success");
+  const [severity, setSeverity] = useState<"success" | "error">("success");
 
   const handleClose = () => {
     setOpen(false);
@@ -65,33 +77,57 @@ const TreePage: React.FC = () => {
     setEditingNodeId(null);
   };
 
-  const handleDelete = async (node: TreeNodeData) => {
-    // Show confirmation dialog
-    const confirmDelete = window.confirm(
-      `Are you sure you want to delete "${node.name}" and all its children?`
-    );
+  // const handleDelete = async (node: TreeNodeData) => {
+  //   // Show confirmation dialog
+  //   const confirmDelete = window.confirm(
+  //     `Are you sure you want to delete "${node.name}" and all its children?`
+  //   );
 
-    if (!confirmDelete) return;
+  //   if (!confirmDelete) return;
 
+  //   try {
+  //     // Make API call to delete node
+  //     await deleteNode(node.id);
+  //     console.log("Node deleted successfully");
+
+  //     // Update local state
+  //     const updated = deleteNodeById(treeData, node.id);
+  //     setTreeData(updated);
+  //     setMessage("Node deleted successfully");
+  //     setOpen(true);
+  //   } catch (error) {
+  //     console.error("Error deleting node:", error);
+  //     setMessage("Error deleting node");
+  //     setOpen(true);
+  //     setSeverity("error");
+  //   }
+  // };
+  const handleDelete = (node: TreeNodeData) => {
+    setNodeToDelete(node);
+    setConfirmOpen(true);
+  };
+  const confirmDeleteNode = async () => {
+    if (!nodeToDelete) return;
+  
     try {
-      // Make API call to delete node
-      await deleteNode(node.id);
+      await deleteNode(nodeToDelete.id);
       console.log("Node deleted successfully");
-
-      // Update local state
-      const updated = deleteNodeById(treeData, node.id);
+  
+      const updated = deleteNodeById(treeData, nodeToDelete.id);
       setTreeData(updated);
       setMessage("Node deleted successfully");
-      setOpen(true);
-
+      setSeverity("success");
     } catch (error) {
       console.error("Error deleting node:", error);
       setMessage("Error deleting node");
-      setOpen(true);
       setSeverity("error");
+    } finally {
+      setOpen(true);
+      setConfirmOpen(false);
+      setNodeToDelete(null);
     }
   };
-
+  
   // Helper: Update by ID (recursive function)
   const updateNodeById = (
     nodes: TreeNodeData[],
@@ -156,7 +192,7 @@ const TreePage: React.FC = () => {
           n.children = n.children || [];
           n.children.push({ ...newNode.data, children: [] });
         });
-        
+
         // Set the newly created node to be auto-expanded
         setAutoExpandNodeId(id);
       } else {
@@ -183,21 +219,20 @@ const TreePage: React.FC = () => {
     <>
       <Suspense fallback={<LoadingFallback />}>
         <div style={{ padding: "1rem" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
-            <h2>Tree Structure</h2>
-            <button 
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              marginBottom: "1rem",
+            }}
+          >
+           
+            <button
               onClick={handleAddRootClick}
-              style={{
-                padding: "0.5rem 1rem",
-                backgroundColor: "#007bff",
-                color: "white",
-                border: "none",
-                borderRadius: "4px",
-                cursor: "pointer",
-                fontSize: "14px"
-              }}
+              className="flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded shadow transition duration-200"
             >
-              Add Root Node
+              <span className="text-lg font-bold">+</span> Add Root Node
             </button>
           </div>
 
@@ -232,6 +267,43 @@ const TreePage: React.FC = () => {
         message={message}
         severity={severity}
       />
+     <Dialog
+  open={confirmOpen}
+  onClose={() => setConfirmOpen(false)}
+  aria-labelledby="confirm-delete-dialog-title"
+  aria-describedby="confirm-delete-dialog-description"
+  fullWidth
+  maxWidth="xs"
+>
+  <DialogTitle id="confirm-delete-dialog-title" sx={{ fontWeight: 'bold',textAlign:'center' }}>
+    Confirm Deletion
+  </DialogTitle>
+
+  <DialogContent dividers>
+    <Typography id="confirm-delete-dialog-description" sx={{ fontSize: '1rem', color: 'text.secondary' }}>
+      Are you sure you want to delete <strong>{nodeToDelete?.name}</strong> and all its child nodes? This action cannot be undone.
+    </Typography>
+  </DialogContent>
+
+  <DialogActions sx={{ px: 3, p: 2 }}>
+    <Button
+      onClick={() => setConfirmOpen(false)}
+      variant="text"
+      color="primary"
+    >
+      Cancel
+    </Button>
+    <Button
+      onClick={confirmDeleteNode}
+      variant="text"
+      color="error"
+    >
+      Delete
+    </Button>
+  </DialogActions>
+</Dialog>
+
+
     </>
   );
 };
