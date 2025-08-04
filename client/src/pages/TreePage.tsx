@@ -1,21 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { TreeNode } from "../components/TreeNode";
 import type { TreeNodeData } from "../components/TreeNode";
 import { createNode, getRoots, updateNode, deleteNode } from "../api/treeAPI";
 import { AddNodeModal } from "../components/AddNodeModal";
+import { Suspense, lazy } from "react";
+import LoadingFallback from "../components/LoadingFallback";
+import CustomSnackbar from "../components/CustomSnackBar";
+const TreeNode = lazy(() => import("../components/TreeNode"));
 
-export const TreePage: React.FC = () => {
+const TreePage: React.FC = () => {
   const [treeData, setTreeData] = useState<TreeNodeData[]>([]);
   const [selectedParentId, setSelectedParentId] = useState<string | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [autoExpandNodeId, setAutoExpandNodeId] = useState<string | null>(null);
   const [editingNodeId, setEditingNodeId] = useState<string | null>(null);
+  const [isAddingRoot, setIsAddingRoot] = useState(false);
 
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchTree = async () => {
       try {
         const res = await getRoots();
         setTreeData(res.data);
+        setLoading(false);
         console.log(res.data);
       } catch (error) {
         console.error("Error fetching tree:", error);
@@ -23,6 +29,15 @@ export const TreePage: React.FC = () => {
     };
     fetchTree();
   }, []);
+
+  const [open, setOpen] = useState(false);
+  const [message, setMessage] = useState("");
+  const [severity,setSeverity] = useState<"success" | "error">("success");
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  // Handle edit, add, and delete operations
 
   const handleEdit = async (node: TreeNodeData, newName?: string) => {
     if (newName !== undefined) {
@@ -65,9 +80,14 @@ export const TreePage: React.FC = () => {
       // Update local state
       const updated = deleteNodeById(treeData, node.id);
       setTreeData(updated);
+      setMessage("Node deleted successfully");
+      setOpen(true);
+
     } catch (error) {
       console.error("Error deleting node:", error);
-      // Optionally show an error message to the user
+      setMessage("Error deleting node");
+      setOpen(true);
+      setSeverity("error");
     }
   };
 
@@ -105,6 +125,14 @@ export const TreePage: React.FC = () => {
   const handleAddClick = (parent: TreeNodeData) => {
     console.log(parent.id, "parentId clicked");
     setSelectedParentId(parent.id);
+    setIsAddingRoot(false);
+    setShowModal(true);
+  };
+
+  const handleAddRootClick = () => {
+    console.log("Adding root node");
+    setSelectedParentId(null);
+    setIsAddingRoot(true);
     setShowModal(true);
   };
 
@@ -112,7 +140,7 @@ export const TreePage: React.FC = () => {
     parentId,
     name,
   }: {
-    parentId: string;
+    parentId: string | null;
     name: string;
   }) => {
     try {
@@ -121,50 +149,90 @@ export const TreePage: React.FC = () => {
       const id = newNode.data.id;
       console.log("New Node Created:", newNode.data, id);
 
-      // Update the local tree
-      updateNodeById(treeData, parentId, (n) => {
-        n.children = n.children || [];
-        n.children.push({ ...newNode.data, children: [] });
-      });
+      if (parentId) {
+        // Adding child node
+        updateNodeById(treeData, parentId, (n) => {
+          n.children = n.children || [];
+          n.children.push({ ...newNode.data, children: [] });
+        });
+        
+        // Set the newly created node to be auto-expanded
+        setAutoExpandNodeId(id);
+      } else {
+        // Adding root node
+        setTreeData([...treeData, { ...newNode.data, children: [] }]);
+      }
 
-      // Create new tree data and set auto-expand
-      const newTreeData = [...treeData];
-      setTreeData(newTreeData);
-
-      // Set the newly created node to be auto-expanded
-      setAutoExpandNodeId(id);
+      setMessage("Node added successfully");
+      setOpen(true);
     } catch (error) {
-      console.error("Error adding node:", error);
+      setMessage("Error adding node");
+      setOpen(true);
+      setSeverity("error");
     } finally {
       setShowModal(false);
       setSelectedParentId(null);
+      setIsAddingRoot(false);
     }
   };
 
+  if (loading) return <LoadingFallback />;
 
   return (
-    <div style={{ padding: "1rem" }}>
-      <h2>Tree Structure</h2>
-      {treeData.map((node) => (
-        <TreeNode
-          key={node.id}
-          node={node}
-          onEdit={handleEdit}
-          onAdd={handleAddClick}
-          onDelete={handleDelete}
-          autoExpandNodeId={autoExpandNodeId}
-          clearAutoExpandNodeId={() => setAutoExpandNodeId(null)}
-          editingNodeId={editingNodeId} // Pass the editing node ID
-          onCancelEdit={handleCancelEdit}
-        />
-      ))}
-      {showModal && selectedParentId && (
-        <AddNodeModal
-          parentId={selectedParentId}
-          onClose={() => setShowModal(false)}
-          onSubmit={handleModalSubmit}
-        />
-      )}
-    </div>
+    <>
+      <Suspense fallback={<LoadingFallback />}>
+        <div style={{ padding: "1rem" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
+            <h2>Tree Structure</h2>
+            <button 
+              onClick={handleAddRootClick}
+              style={{
+                padding: "0.5rem 1rem",
+                backgroundColor: "#007bff",
+                color: "white",
+                border: "none",
+                borderRadius: "4px",
+                cursor: "pointer",
+                fontSize: "14px"
+              }}
+            >
+              Add Root Node
+            </button>
+          </div>
+
+          {treeData.map((node) => (
+            <TreeNode
+              key={node.id}
+              node={node}
+              onEdit={handleEdit}
+              onAdd={handleAddClick}
+              onDelete={handleDelete}
+              autoExpandNodeId={autoExpandNodeId}
+              clearAutoExpandNodeId={() => setAutoExpandNodeId(null)}
+              editingNodeId={editingNodeId} // Pass the editing node ID
+              onCancelEdit={handleCancelEdit}
+            />
+          ))}
+          {showModal && (
+            <AddNodeModal
+              parentId={isAddingRoot ? null : selectedParentId}
+              onClose={() => {
+                setShowModal(false);
+                setIsAddingRoot(false);
+              }}
+              onSubmit={handleModalSubmit}
+            />
+          )}
+        </div>
+      </Suspense>
+      <CustomSnackbar
+        open={open}
+        onClose={handleClose}
+        message={message}
+        severity={severity}
+      />
+    </>
   );
 };
+
+export default TreePage;

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 interface AddNodeModalProps {
-  parentId: string;
+  parentId: string|null;
   onClose: () => void;
-  onSubmit: (data: { parentId: string; name: string }) => void;
+  onSubmit: (data: { parentId: string|null; name: string }) => void;
 }
 
 export const AddNodeModal: React.FC<AddNodeModalProps> = ({ 

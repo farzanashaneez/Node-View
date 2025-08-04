@@ -23,11 +23,11 @@ interface TreeNodeProps {
   level?: number;
   autoExpandNodeId?: string | null;
   clearAutoExpandNodeId?: () => void;
-  editingNodeId?: string | null; // Changed from isEditing boolean to editingNodeId string
+  editingNodeId?: string | null; 
   onCancelEdit?: () => void;
 }
 
-export const TreeNode: React.FC<TreeNodeProps> = ({
+ const TreeNode: React.FC<TreeNodeProps> = ({
   node,
   onEdit,
   onAdd,
@@ -35,7 +35,7 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
   level = 0,
   autoExpandNodeId,
   clearAutoExpandNodeId,
-  editingNodeId = null, // Changed parameter name
+  editingNodeId = null, 
   onCancelEdit,
 }) => {
   const [expanded, setExpanded] = useState(false);
@@ -49,7 +49,6 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
   // Auto-expand effect - check if this node should be expanded
   useEffect(() => {
     if (autoExpandNodeId && node.children) {
-      // Check if the autoExpandNodeId is one of this node's children (recursive check)
       const findNodeInChildren = (children: TreeNodeData[]): boolean => {
         return children.some((child) => {
           if (child.id === autoExpandNodeId) return true;
@@ -61,7 +60,6 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
       const shouldExpand = findNodeInChildren(node.children);
       if (shouldExpand) {
         setExpanded(true);
-        // Clear the auto-expand after a short delay to ensure it's processed
         setTimeout(() => {
           clearAutoExpandNodeId?.();
         }, 100);
@@ -82,7 +80,6 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
     setEditValue(node.name);
   }, [node.name]);
 
-  // More robust check for children
   const hasChildren = Array.isArray(node.children) && node.children.length > 0;
 
   const handleSaveEdit = () => {
@@ -151,7 +148,6 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
               )}
             </button>
           ) : (
-            // Empty space to maintain alignment
             <div className="w-5 h-5" />
           )}
         </div>
@@ -251,3 +247,4 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
     </div>
   );
 };
+export default TreeNode;

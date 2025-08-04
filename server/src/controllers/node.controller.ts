@@ -95,26 +95,7 @@ export const getAllNodes = async (_req: Request, res: Response) => {
   }
 };
 
-// get all roots
-// export const getRoots = async (_req: Request, res: Response) => {
-//   try {
-//     const roots = await NodeModel.find({ parentId: null },{_id:0,id:1,name:1,path:1,parentId:1}).lean();
-//     const rootIds = roots.map(root => root.id);
 
-//     const children = await NodeModel.find(
-//       { parentId: { $in: rootIds } },
-//       {_id:0,id:1,name:1,path:1,parentId:1}
-//     ).lean();
-    
-//     const rootsWithChildren = roots.map(root => ({
-//       ...root,
-//       children: children.filter(child => child.parentId === root.id),
-//     }));  
-//     res.json(rootsWithChildren);
-//   } catch (error) {
-//     res.status(500).json({ message: "Error fetching root nodes", error });
-//   }
-// };
 const getChildrenRecursively = async (parentId: string): Promise<any[]> => {
   const children = await NodeModel.find(
     { parentId },
